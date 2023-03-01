@@ -1,0 +1,161 @@
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+   
+}
+
+.container{
+    width:100vw ;
+    height: 100vh;
+    background-color:  #e1f0ef;
+}
+#mode:checked ~ .container{
+    background-color:  #323535;
+}
+
+.container .container-mode{
+    position: absolute;
+    width:max(100px,35vw) ;
+    height:max(100px,45vh) ;
+    left: 30%;
+    top: 20%;
+    background-color:  #aad4cf; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    border: 2px solid #70c08d2d;
+    
+
+}
+#mode:checked ~ .container .container-mode{
+    background-color: #022B11;
+    overflow: hidden;
+   
+    
+}
+#mode:checked ~ .container .container-mode::before{
+    position: absolute;
+    content: '';
+    z-index: 1;
+    width:max(80px,10vw) ;
+    height:max(80px,70vh) ;
+    background:
+    linear-gradient(#016124,#00df52);
+    animation: animate 3.5s linear infinite;
+}
+@keyframes animate{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+#mode:checked ~ .container .container-mode::after{
+    position: absolute;
+    content: '';
+    z-index: 2;
+    background: #082714; 
+    border-radius: 12px;
+    inset: 5px;
+}
+
+
+#mode:checked ~ .container  .mode-dark{
+    color: #e4f0e9;
+    
+}
+
+
+.container  .mode-dark{
+    color: #1F763F;
+    font-size: 3em;
+    z-index: 10;
+}
+
+.container  .dark-light{
+    position: absolute;
+    top: 10%;
+    right:20%;
+    
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+   
+    justify-content: center;
+    border: 1px solid #4cac03;
+    border-radius: 20px;
+    width: 65px;
+    height: 25px;
+    background-color:  white;
+}
+
+.dark-light .icon{
+    margin: 5px;
+    color: #ffffff;
+}
+.dark-light .bxs-moon{
+    color: #134425;
+}
+
+.container  .dark-light::before{
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #0b2515;
+    background-color: #d8dddc;
+    border-radius: 50%;
+    animation: caption1 1s  forwards;
+
+}
+#mode:checked ~ .container .dark-light{
+    background-color: #b0d8d0;
+}
+
+@keyframes caption1{
+
+	0%{	left: 58.5%;
+		
+	}
+	
+	100%{
+		
+		left: -1px;
+		
+    }
+
+}
+
+#mode{
+     display: none; 
+}
+
+#mode:checked ~ .container  .dark-light::before{
+ 
+    
+    animation: caption2 1s  forwards;
+}
+
+
+@keyframes caption2{
+
+	0%{	left: 0;
+		
+	}
+	
+	100%{
+		
+		left: 58%;
+		
+    }
+
+}
+
